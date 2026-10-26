@@ -825,3 +825,155 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ===== Responsive Navigation Update ===== */
+
+.header {
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 5%;
+  background: #fff8ec;
+}
+
+.logo {
+  flex-shrink: 0;
+  font-size: clamp(24px, 2.5vw, 34px);
+  font-weight: 800;
+  text-decoration: none;
+  color: #38251c;
+}
+
+.logo span {
+  color: #a77a18;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(12px, 2vw, 28px);
+}
+
+.navbar a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  color: #38251c;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  color: #a77a18;
+  border-bottom-color: #a77a18;
+}
+
+.navbar a.contact-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  background: #a77a18;
+  color: white;
+}
+
+.navbar a.contact-btn:hover {
+  background: #805b12;
+}
+
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid #ead9b9;
+  border-radius: 12px;
+  background: #fffdf7;
+  color: #a77a18;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+/* ===== Tablet and Mobile ===== */
+
+@media (max-width: 768px) {
+  .header {
+    padding: 16px 5%;
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 27px;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+
+  .navbar {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 5%;
+    right: 5%;
+    padding: 14px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    background: #fffdf7;
+    border: 1px solid #ead9b9;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(56, 37, 28, 0.12);
+  }
+
+  .navbar.open {
+    display: flex;
+  }
+
+  .navbar a {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .navbar a:hover,
+  .navbar a.active {
+    background: #f7ecd8;
+    color: #986d14;
+  }
+
+  .navbar a.contact-btn {
+    justify-content: center;
+    margin-top: 5px;
+    padding: 13px 18px;
+    border-radius: 25px;
+  }
+}
+
+@media (max-width: 360px) {
+  .logo {
+    font-size: 23px;
+  }
+
+  .menu-toggle {
+    width: 42px;
+    height: 42px;
+  }
+}
+
