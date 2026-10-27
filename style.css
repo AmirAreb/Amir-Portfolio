@@ -1023,3 +1023,36 @@ footer {
     text-align: center;
   }
 }
+
+.menu-toggle {
+  display: block;
+  cursor: pointer;
+  border: 1px solid #e8dcc3;
+  border-radius: 12px;
+  background: #fffdf7;
+  color: #a47b19;
+  font-size: 30px;
+  padding: 8px 15px;
+}
+
+.nav-menu {
+  display: none;
+  flex-direction: column;
+  gap: 18px;
+  padding: 20px;
+  background: #fff8eb;
+}
+
+.nav-menu.active {
+  display: flex;
+}
+
+.nav-menu a {
+  color: #302016;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.nav-menu a:hover {
+  color: #a47b19;
+}
