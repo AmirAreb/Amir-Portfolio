@@ -1,115 +1,86 @@
 
-const menuToggle = document.querySelector(".menu-toggle");
-const navbar = document.querySelector(".navbar");
-
-if (menuToggle && navbar) {
-  menuToggle.addEventListener("click", () => {
-    navbar.classList.toggle("open");
-
-    menuToggle.setAttribute(
-      "aria-expanded",
-      navbar.classList.contains("open")
-    );
-  });
-
-  navbar.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navbar.classList.remove("open");
-    });
-  });
-}
-
-const contactForm = document.querySelector("#contact-form");
-const formStatus = document.querySelector("#form-status");
-
-if (contactForm && formStatus) {
-  contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(contactForm);
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const subject = formData.get("subject");
-    const message = formData.get("message");
-
-    const recipient = "amirareb@example.com";
-
-    const body =
-      `Name: ${name}\n` +
-      `Email: ${email}\n\n` +
-      `${message}`;
-
-    const mailto =
-      `mailto:${recipient}` +
-      `?subject=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(body)}`;
-
-    formStatus.textContent =
-      "Opening your email application...";
-
-    window.location.href = mailto;
-  });
-}
-
-const yearElement = document.getElementById("year");
-const contactForm = document.getElementById("contactForm");
-const formStatus = document.getElementById("formStatus");
-
-yearElement.textContent = new Date().getFullYear();
-
-contactForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const subject = document.getElementById("subject").value.trim();
-  const message = document.getElementById("message").value.trim();
-
-  if (!name || !email || !subject || !message) {
-    formStatus.textContent = "Please complete all fields.";
-    return;
-  }
-
-  // Replace this with your real email address.
-  const receiver = "your-email@gmail.com";
-
-  const emailBody =
-    "Name: " + name + "\n" +
-    "Email: " + email + "\n\n" +
-    message;
-
-  const mailtoLink =
-    "mailto:" + receiver +
-    "?subject=" + encodeURIComponent(subject) +
-    "&body=" + encodeURIComponent(emailBody);
-
-  formStatus.textContent =
-    "Opening your email app. Please send the message there.";
-
-  window.location.href = mailtoLink;
-});
-
 document.addEventListener("DOMContentLoaded", function () {
+  // Mobile navigation menu
   const menuToggle = document.querySelector(".menu-toggle");
   const navbar = document.querySelector(".navbar");
 
-  if (!menuToggle || !navbar) return;
+  if (menuToggle && navbar) {
+    menuToggle.setAttribute("aria-expanded", "false");
 
-  menuToggle.addEventListener("click", function () {
-    navbar.classList.toggle("active");
+    menuToggle.addEventListener("click", function () {
+      const isOpen = !navbar.classList.contains("open");
 
-    const isOpen = navbar.classList.contains("active");
-    menuToggle.setAttribute("aria-expanded", isOpen);
-    menuToggle.setAttribute(
-      "aria-label",
-      isOpen ? "Close navigation" : "Open navigation"
-    );
-  });
+      navbar.classList.toggle("open", isOpen);
+      navbar.classList.toggle("active", isOpen);
 
-  navbar.querySelectorAll("a").forEach(function (link) {
-    link.addEventListener("click", function () {
-      navbar.classList.remove("active");
-      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+      );
     });
-  });
+
+    navbar.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navbar.classList.remove("open", "active");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation");
+      });
+    });
+  }
+
+  // Update footer year if the element exists
+  const yearElement = document.getElementById("year");
+
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+
+  // Contact form: support either ID used in your HTML
+  const contactForm =
+    document.getElementById("contact-form") ||
+    document.getElementById("contactForm");
+
+  const formStatus =
+    document.getElementById("form-status") ||
+    document.getElementById("formStatus");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(contactForm);
+      const name = String(formData.get("name") || "").trim();
+      const email = String(formData.get("email") || "").trim();
+      const subject = String(formData.get("subject") || "").trim();
+      const message = String(formData.get("message") || "").trim();
+
+      if (!name || !email || !subject || !message) {
+        if (formStatus) {
+          formStatus.textContent = "Please complete all fields.";
+        }
+        return;
+      }
+
+      // Replace with your real email address
+      const recipient = "your-email@gmail.com";
+
+      const body =
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n\n" +
+        message;
+
+      const mailtoLink =
+        "mailto:" + recipient +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+
+      if (formStatus) {
+        formStatus.textContent =
+          "Opening your email app. Please send the message there.";
+      }
+
+      window.location.href = mailtoLink;
+    });
+  }
 });
