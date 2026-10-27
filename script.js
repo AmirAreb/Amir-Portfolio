@@ -84,3 +84,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navbar = document.querySelector(".navbar");
+
+  if (!menuToggle || !navbar) {
+    console.error("Menu button or navbar not found.");
+    return;
+  }
+
+  menuToggle.addEventListener("click", function () {
+    navbar.classList.toggle("open");
+  });
+});
