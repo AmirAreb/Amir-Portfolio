@@ -98,3 +98,23 @@ document.addEventListener("DOMContentLoaded", function () {
     navbar.classList.toggle("open");
   });
 });
+
+const menuToggle = document.getElementById("menu-toggle");
+const navMenu = document.getElementById("nav-menu");
+
+if (menuToggle && navMenu) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = navMenu.classList.toggle("active");
+
+    menuToggle.setAttribute("aria-expanded", isOpen);
+    menuToggle.innerHTML = isOpen ? "✕" : "☰";
+  });
+
+  navMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("active");
+      menuToggle.innerHTML = "☰";
+      menuToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+}
