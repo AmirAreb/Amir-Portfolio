@@ -6,61 +6,83 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Amir Areb | Web Developer</title>
   <link rel="stylesheet" href="./style.css">
-  <script src="assets/js/script.js" defer></script>
+  <script src="./assets/js/script.js" defer></script>
 </head>
 <body>
+
   <header class="header">
-    <a class="logo" href="index.html">Amir <span>Areb</span></a>
-    <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
-  
-<button class="menu-toggle" id="menu-toggle"
-        aria-label="Open navigation menu"
-        aria-expanded="false">
-  ☰
-</button>
+    <a class="logo" href="index.html">
+      Amir <span>Areb</span>
+    </a>
 
-<nav class="nav-menu" id="nav-menu">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="skills.html">Skills</a>
-  <a href="services.html">Services</a>
-  <a href="contact.html">Contact</a>
-</nav>
+    <button
+      class="menu-toggle"
+      id="menu-toggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="nav-menu">
+      ☰
+    </button>
 
-
+    <nav class="navbar" id="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
   <main class="hero">
     <div class="photo-frame">
-      <img src="./IMG.jpg" alt="Amir Areb">
-           onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
-      <div class="photo-placeholder">Add Your Photo</div>
+      <img
+        src="./IMG.jpg"
+        alt="Amir Areb"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+
+      <div class="photo-placeholder">
+        Add Your Photo
+      </div>
     </div>
 
     <section class="hero-content">
       <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
+
       <h1>Hey, I'm <span>Amir Areb</span></h1>
+
       <h2>I'm a <span>Web Developer</span></h2>
+
       <p class="description">
-        I build modern websites, web applications and digital solutions
-        that help businesses grow and bring ideas to life with clean code,
-        creative design and modern technologies.
+        I build modern websites, web applications and digital
+        solutions that help businesses grow and bring ideas to
+        life with clean code, creative design and modern technologies.
       </p>
 
       <div class="social-links">
-        <a href="https://github.com/" aria-label="GitHub">GH</a>
-        <a href="https://www.linkedin.com/" aria-label="LinkedIn">in</a>
-        <a href="https:/Amir_Areb/t.me/" aria-label="Telegram">➤</a>
+        <a href="https://github.com/"
+           target="_blank"
+           rel="noopener noreferrer">GH</a>
+
+        <a href="https://www.linkedin.com/"
+           target="_blank"
+           rel="noopener noreferrer">in</a>
+
+        <a href="https://t.me/YOUR_USERNAME"
+           target="_blank"
+           rel="noopener noreferrer">➤</a>
       </div>
 
-      <a class="primary-btn" href="" download>
-        ↓ &nbsp; Download CV
+      <a class="primary-btn" href="./CV.pdf" download>
+        ↓ Download CV
       </a>
     </section>
   </main>
 
   <footer class="footer">
-    © 2026 Amir Areb. All rights reserved.
+    © <span id="year">2026</span> Amir Areb.
+    All rights reserved.
   </footer>
+
 </body>
 </html>
