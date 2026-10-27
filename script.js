@@ -88,3 +88,28 @@ contactForm.addEventListener("submit", function (event) {
 
   window.location.href = mailtoLink;
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navbar = document.querySelector(".navbar");
+
+  if (!menuToggle || !navbar) return;
+
+  menuToggle.addEventListener("click", function () {
+    navbar.classList.toggle("active");
+
+    const isOpen = navbar.classList.contains("active");
+    menuToggle.setAttribute("aria-expanded", isOpen);
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Close navigation" : "Open navigation"
+    );
+  });
+
+  navbar.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      navbar.classList.remove("active");
+      menuToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+});
