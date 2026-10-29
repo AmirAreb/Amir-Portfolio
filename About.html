@@ -1,60 +1,81 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About | Amir Areb</title>
   <link rel="stylesheet" href="./style.css">
-<script src="./assets/js/script.js" defer></script>
+  <script src="./assets/js/script.js" defer></script>
 </head>
-
 <body>
+
   <header class="header">
-    <a class="logo" href="../index.html">Amir <span>Areb</span></a>
-    <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
-    <nav class="navbar">
-<a href="./index.html">Home</a>
-<a href="./#">About</a>
-<a href="./Skills.html">Skills</a>
-<a href="./Service.html">Services</a>
-<a href="./Contact.html">Contact</a>
+    <a class="logo" href="./index.html">
+      Amir <span>Areb</span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      id="menu-toggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-controls="nav-menu"
+      aria-expanded="false">
+      ☰
+    </button>
+
+    <nav class="navbar" id="nav-menu" aria-label="Main navigation">
+      <a href="./index.html">Home</a>
+      <a href="./about.html" class="active">About</a>
+      <a href="./Skills.html">Skills</a>
+      <a href="./Service.html">Services</a>
+      <a href="./Contact.html">Contact</a>
     </nav>
   </header>
-  
+
   <main class="page-layout">
     <div class="photo-frame small-photo">
-      <img src="./IMG.jpg" alt="Amir Areb">
+      <img
+        src="./IMG.jpg"
+        alt="Amir Areb"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
       <div class="photo-placeholder">Add Your Photo</div>
     </div>
-    
+
     <section class="page-content">
       <p class="eyebrow">GET TO KNOW ME</p>
+
       <h1>About <span>Me</span></h1>
+
       <p>
         I'm Amir Areb, an aspiring web developer passionate about
         creating modern, responsive and user-friendly websites.
       </p>
+
       <p>
         I enjoy turning ideas into digital solutions that help people
         and businesses solve problems. I'm learning HTML, CSS,
         JavaScript and database technologies while building practical
         projects to improve my skills.
       </p>
+
       <p>
         My goal is to become a skilled software developer, create useful
         applications and deliver high-quality digital experiences.
       </p>
-      
+
       <div class="feature-grid">
         <article class="card">
           <h3>Problem Solver</h3>
           <p>I enjoy finding simple solutions to problems.</p>
         </article>
+
         <article class="card">
           <h3>Team Player</h3>
           <p>I value teamwork and sharing ideas.</p>
         </article>
+
         <article class="card">
           <h3>Continuous Learner</h3>
           <p>I keep learning new tools and technologies.</p>
@@ -62,7 +83,10 @@
       </div>
     </section>
   </main>
-  <footer class="footer">© 2026 Amir Areb. All rights reserved.</footer>
-</body>
 
+  <footer class="footer">
+    © 2026 Amir Areb. All rights reserved.
+  </footer>
+
+</body>
 </html>
